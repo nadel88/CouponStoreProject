@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="il.ac.hit.couponstorem.model.Coupon" table="COUPON">
+		<id name="id" type="int" column="ID" >
+			<generator class="increment"/>
+		</id>
+		<property name="business_id" >
+			<column name="BUSINESS_ID"/>
+		</property>
+		<property name="image">
+			<column name="IMAGE"/>
+		</property>
+		<property name="details">
+			<column name="DETAILS"/>
+		</property>
+		<property name="price">
+			<column name="PRICE"/>
+		</property>
+		<property name="category">
+			<column name="CATEGORY"/>
+		</property>
+		<property name="expiredate">
+			<column name="EXPIRE"/>	
+		</property>
+	</class>
+	
+	<class name="il.ac.hit.couponstorem.model.User" table="USERS">
+		<id name="userName" type="text" column="USERNAME ">
+		</id>
+		<property name="passWord">
+			<column name="PASSWORD"/>
+		</property>
+		<property name="id">
+			<column name="ID"/>
+		</property>
+		<property name="permissions">
+			<column name="PERMISSIONS"/>
+		</property>
+	</class>
+</hibernate-mapping>
