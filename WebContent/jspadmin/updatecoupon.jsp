@@ -82,7 +82,7 @@
   								<option>details</option>
   								<option>price</option>
   								<option>category</option>
-  								<option>date of expire</option>
+  								<option>expire</option>
 								</select>
 							<br><h3> Column Value:</h3> <input type="text" class="form-control input-lg" name="colvalue" /> 
 							<!--  <br><input type="submit"/> -->

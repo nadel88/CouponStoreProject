@@ -19,7 +19,7 @@
 <div class="container">
 
 <div class="page-header">
-    <h1>Sign-in <small>Please choose a user name and password.</small></h1>
+    <h1>Sign-Up <small>Please choose a user name and password.</small></h1>
 </div>
 
 <!-- Simple Login - START -->

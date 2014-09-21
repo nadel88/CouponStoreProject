@@ -74,12 +74,14 @@
                         <form method="post" action=<%= request.getContextPath() +"/servlet/CouponAdminServlet/add"%>>
 							<br><h3> Business_Id:</h3> <input type="text" class="form-control input-lg" name="business_id" /> 
 							<br><h3> Image Source:</h3> <input type="text" class="form-control input-lg" name="image" /> 
-							<br><h3> Details:</h3> <input type="text" class="form-control input-lg" name="details" />
+							<!--  <br><h3> Details:</h3> <input type="text" class="form-control input-lg" name="details" /> -->
+							<br><h3>Details:</h3>
+							<br><textarea type="text" class="form-control input-lg" name="details"></textarea>
 							<br><h3> Price:</h3> <input type="text" class="form-control input-lg" name="price" />
 							<br><h3>Select Category:</h3><select class="form-control input-lg" name="category">
   								<option>restaurants</option>
   								<option>electronics</option>
-  								<option>movie_shows</option>
+  								<option>movies_shows</option>
   								<option>vacation</option>
 								</select>
 							<br><h3> Date of expire(MM DD YY hh:mm:ss):</h3> <input type="text" class="form-control input-lg" name="doe" />

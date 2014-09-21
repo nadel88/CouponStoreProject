@@ -70,7 +70,7 @@
                     	<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/login"%>>Log-In</a>
                     </li>
                     <li>
-                    	<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/signin"%>>Sign-In</a>
+                    	<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/signin"%>>Sign-Up</a>
                     </li> 
                     <li>
                     	<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/logoff"%>>Log-Off</a>
