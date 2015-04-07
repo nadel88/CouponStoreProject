@@ -1,0 +1,150 @@
+LOG4J logger 2014-09-19 20:39:21,714  INFO [main] - org.hibernate.cfg.annotations.Version.<clinit> 43 - Hibernate Annotations 3.5.5-Final
+LOG4J logger 2014-09-19 20:39:21,745  INFO [main] - org.hibernate.cfg.Environment.<clinit> 570 - Hibernate 3.5.5-Final
+LOG4J logger 2014-09-19 20:39:21,745  INFO [main] - org.hibernate.cfg.Environment.<clinit> 603 - hibernate.properties not found
+LOG4J logger 2014-09-19 20:39:21,745  INFO [main] - org.hibernate.cfg.Environment.buildBytecodeProvider 781 - Bytecode provider name : javassist
+LOG4J logger 2014-09-19 20:39:21,761  INFO [main] - org.hibernate.cfg.Environment.<clinit> 662 - using JDK 1.4 java.sql.Timestamp handling
+LOG4J logger 2014-09-19 20:39:21,854  INFO [main] - org.hibernate.annotations.common.Version.<clinit> 37 - Hibernate Commons Annotations 3.2.0.Final
+LOG4J logger 2014-09-19 20:39:21,854  INFO [main] - org.hibernate.cfg.Configuration.configure 1518 - configuring from resource: /hibernate.cfg.xml
+LOG4J logger 2014-09-19 20:39:21,854  INFO [main] - org.hibernate.cfg.Configuration.getConfigurationInputStream 1495 - Configuration resource: /hibernate.cfg.xml
+LOG4J logger 2014-09-19 20:39:21,948  INFO [main] - org.hibernate.cfg.Configuration.addResource 655 - Reading mappings from resource : couponinventory.hbm.xml
+LOG4J logger 2014-09-19 20:39:22,011  INFO [main] - org.hibernate.cfg.Configuration.doConfigure 1633 - Configured SessionFactory: null
+LOG4J logger 2014-09-19 20:39:22,026  INFO [main] - org.hibernate.cfg.search.HibernateSearchEventListenerRegister.enableHibernateSearch 75 - Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+LOG4J logger 2014-09-19 20:39:22,058  INFO [main] - org.hibernate.cfg.HbmBinder.bindRootPersistentClassCommonValues 348 - Mapping class: il.ac.hit.couponstorem.model.Coupon -> COUPON
+LOG4J logger 2014-09-19 20:39:22,073  INFO [main] - org.hibernate.cfg.HbmBinder.bindRootPersistentClassCommonValues 348 - Mapping class: il.ac.hit.couponstorem.model.User -> USERS
+LOG4J logger 2014-09-19 20:39:22,073  INFO [main] - org.hibernate.cfg.AnnotationConfiguration.applyHibernateValidatorLegacyConstraintsOnDDL 450 - Hibernate Validator not found: ignoring
+LOG4J logger 2014-09-19 20:39:22,121  INFO [main] - org.hibernate.connection.DriverManagerConnectionProvider.configure 64 - Using Hibernate built-in connection pool (not for production use!)
+LOG4J logger 2014-09-19 20:39:22,121  INFO [main] - org.hibernate.connection.DriverManagerConnectionProvider.configure 65 - Hibernate connection pool size: 20
+LOG4J logger 2014-09-19 20:39:22,121  INFO [main] - org.hibernate.connection.DriverManagerConnectionProvider.configure 68 - autocommit mode: false
+LOG4J logger 2014-09-19 20:39:22,121  INFO [main] - org.hibernate.connection.DriverManagerConnectionProvider.configure 103 - using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/my_coupons_hibernate
+LOG4J logger 2014-09-19 20:39:22,121  INFO [main] - org.hibernate.connection.DriverManagerConnectionProvider.configure 109 - connection properties: {user=root, password=****}
+LOG4J logger 2014-09-19 20:39:22,325  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 117 - RDBMS: MySQL, version: 5.6.16
+LOG4J logger 2014-09-19 20:39:22,325  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 118 - JDBC driver: MySQL-AB JDBC Driver, version: mysql-connector-java-5.1.13 ( Revision: ${bzr.revision-id} )
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.dialect.Dialect.<init> 206 - Using dialect: org.hibernate.dialect.MySQLDialect
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.engine.jdbc.JdbcSupportLoader.useContextualLobCreation 79 - Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.transaction.TransactionFactoryFactory.buildTransactionFactory 59 - Using default transaction strategy (direct JDBC transactions)
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.transaction.TransactionManagerLookupFactory.getTransactionManagerLookup 80 - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 169 - Automatic flush during beforeCompletion(): disabled
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 173 - Automatic session close at end of transaction: disabled
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 180 - JDBC batch size: 15
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 183 - JDBC batch updates for versioned data: disabled
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 188 - Scrollable result sets: enabled
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 196 - JDBC3 getGeneratedKeys(): enabled
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 204 - Connection release mode: auto
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 228 - Maximum outer join fetch depth: 2
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 231 - Default batch fetch size: 1
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 235 - Generate SQL with comments: disabled
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 239 - Order SQL updates by primary key: disabled
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 243 - Order SQL inserts for batching: disabled
+LOG4J logger 2014-09-19 20:39:22,341  INFO [main] - org.hibernate.cfg.SettingsFactory.createQueryTranslatorFactory 410 - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+LOG4J logger 2014-09-19 20:39:22,356  INFO [main] - org.hibernate.hql.ast.ASTQueryTranslatorFactory.<init> 47 - Using ASTQueryTranslatorFactory
+LOG4J logger 2014-09-19 20:39:22,356  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 251 - Query language substitutions: {}
+LOG4J logger 2014-09-19 20:39:22,356  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 256 - JPA-QL strict compliance: disabled
+LOG4J logger 2014-09-19 20:39:22,356  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 261 - Second-level cache: enabled
+LOG4J logger 2014-09-19 20:39:22,356  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 265 - Query cache: disabled
+LOG4J logger 2014-09-19 20:39:22,356  INFO [main] - org.hibernate.cfg.SettingsFactory.createRegionFactory 395 - Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+LOG4J logger 2014-09-19 20:39:22,356  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 275 - Optimize cache for minimal puts: disabled
+LOG4J logger 2014-09-19 20:39:22,356  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 284 - Structured second-level cache entries: disabled
+LOG4J logger 2014-09-19 20:39:22,356  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 313 - Statistics: disabled
+LOG4J logger 2014-09-19 20:39:22,356  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 317 - Deleted entity synthetic identifier rollback: disabled
+LOG4J logger 2014-09-19 20:39:22,356  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 332 - Default entity-mode: pojo
+LOG4J logger 2014-09-19 20:39:22,356  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 336 - Named query checking : enabled
+LOG4J logger 2014-09-19 20:39:22,356  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 340 - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+LOG4J logger 2014-09-19 20:39:22,372  INFO [main] - org.hibernate.impl.SessionFactoryImpl.<init> 199 - building session factory
+LOG4J logger 2014-09-19 20:39:22,497  INFO [main] - org.hibernate.impl.SessionFactoryObjectFactory.addInstance 105 - Not binding factory to JNDI, no JNDI name configured
+LOG4J logger 2014-09-19 20:39:22,544 ERROR [main] - org.hibernate.tool.hbm2ddl.SchemaUpdate.execute 212 - Unsuccessful: alter table USERS add column USERNAME  longtext not null
+LOG4J logger 2014-09-19 20:39:22,544 ERROR [main] - org.hibernate.tool.hbm2ddl.SchemaUpdate.execute 213 - Duplicate column name 'USERNAME'
+LOG4J logger 2014-09-19 20:39:22,544  INFO [main] - il.ac.hit.couponstorem.model.Log4j.<clinit> 44 - SESSION STARTED...
+LOG4J logger 2014-09-19 20:39:22,606 DEBUG [main] - org.hibernate.SQL.logStatement 111 - select coupon0_.ID as ID0_0_, coupon0_.BUSINESS_ID as BUSINESS2_0_0_, coupon0_.IMAGE as IMAGE0_0_, coupon0_.DETAILS as DETAILS0_0_, coupon0_.PRICE as PRICE0_0_, coupon0_.CATEGORY as CATEGORY0_0_, coupon0_.EXPIRE as EXPIRE0_0_ from COUPON coupon0_ where coupon0_.ID=?
+LOG4J logger 2014-09-19 20:39:22,622 TRACE [main] - org.hibernate.type.IntegerType.nullSafeSet 153 - binding '1' to parameter: 1
+LOG4J logger 2014-09-19 20:39:22,622 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'Pizza Hut' as column: BUSINESS2_0_0_
+LOG4J logger 2014-09-19 20:39:22,622 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'images/restaurants/pizza.jpg' as column: IMAGE0_0_
+LOG4J logger 2014-09-19 20:39:22,622 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'Hot and Fresh Family Pizza with 2 toppings of your choice  ' as column: DETAILS0_0_
+LOG4J logger 2014-09-19 20:39:22,622 TRACE [main] - org.hibernate.type.DoubleType.nullSafeGet 195 - returning '59.99' as column: PRICE0_0_
+LOG4J logger 2014-09-19 20:39:22,622 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'restaurants' as column: CATEGORY0_0_
+LOG4J logger 2014-09-19 20:39:22,622 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning '09.13.2014 23:00:00' as column: EXPIRE0_0_
+LOG4J logger 2014-09-19 20:39:22,622  INFO [main] - il.ac.hit.couponstorem.model.Log4j.getCoupon 152 - il.ac.hit.couponstorem.model.MyException: [1, Pizza Hut, image, Hot and Fresh Family Pizza with 2 toppings of your choice  ,restaurants,59.99]
+LOG4J logger 2014-09-19 20:39:22,810 DEBUG [main] - org.hibernate.SQL.logStatement 111 - select coupon0_.ID as ID0_, coupon0_.BUSINESS_ID as BUSINESS2_0_, coupon0_.IMAGE as IMAGE0_, coupon0_.DETAILS as DETAILS0_, coupon0_.PRICE as PRICE0_, coupon0_.CATEGORY as CATEGORY0_, coupon0_.EXPIRE as EXPIRE0_ from COUPON coupon0_ where CATEGORY='restaurants' limit ?, ?
+LOG4J logger 2014-09-19 20:39:22,810 TRACE [main] - org.hibernate.type.IntegerType.nullSafeGet 195 - returning '2' as column: ID0_
+LOG4J logger 2014-09-19 20:39:22,810 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'business2' as column: BUSINESS2_0_
+LOG4J logger 2014-09-19 20:39:22,810 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'image2' as column: IMAGE0_
+LOG4J logger 2014-09-19 20:39:22,810 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'coupon2' as column: DETAILS0_
+LOG4J logger 2014-09-19 20:39:22,810 TRACE [main] - org.hibernate.type.DoubleType.nullSafeGet 195 - returning '150.0' as column: PRICE0_
+LOG4J logger 2014-09-19 20:39:22,810 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'restaurants' as column: CATEGORY0_
+LOG4J logger 2014-09-19 20:39:22,810 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning '09.13.2014 23:00:00' as column: EXPIRE0_
+LOG4J logger 2014-09-19 20:39:22,825 DEBUG [main] - org.hibernate.SQL.logStatement 111 - select count(*) as col_0_0_ from COUPON coupon0_
+LOG4J logger 2014-09-19 20:39:22,825 TRACE [main] - org.hibernate.type.LongType.nullSafeGet 195 - returning '3' as column: col_0_0_
+LOG4J logger 2014-09-19 20:40:28,795  INFO [main] - org.hibernate.cfg.annotations.Version.<clinit> 43 - Hibernate Annotations 3.5.5-Final
+LOG4J logger 2014-09-19 20:40:28,826  INFO [main] - org.hibernate.cfg.Environment.<clinit> 570 - Hibernate 3.5.5-Final
+LOG4J logger 2014-09-19 20:40:28,826  INFO [main] - org.hibernate.cfg.Environment.<clinit> 603 - hibernate.properties not found
+LOG4J logger 2014-09-19 20:40:28,842  INFO [main] - org.hibernate.cfg.Environment.buildBytecodeProvider 781 - Bytecode provider name : javassist
+LOG4J logger 2014-09-19 20:40:28,842  INFO [main] - org.hibernate.cfg.Environment.<clinit> 662 - using JDK 1.4 java.sql.Timestamp handling
+LOG4J logger 2014-09-19 20:40:28,935  INFO [main] - org.hibernate.annotations.common.Version.<clinit> 37 - Hibernate Commons Annotations 3.2.0.Final
+LOG4J logger 2014-09-19 20:40:28,951  INFO [main] - org.hibernate.cfg.Configuration.configure 1518 - configuring from resource: /hibernate.cfg.xml
+LOG4J logger 2014-09-19 20:40:28,951  INFO [main] - org.hibernate.cfg.Configuration.getConfigurationInputStream 1495 - Configuration resource: /hibernate.cfg.xml
+LOG4J logger 2014-09-19 20:40:29,013  INFO [main] - org.hibernate.cfg.Configuration.addResource 655 - Reading mappings from resource : couponinventory.hbm.xml
+LOG4J logger 2014-09-19 20:40:29,076  INFO [main] - org.hibernate.cfg.Configuration.doConfigure 1633 - Configured SessionFactory: null
+LOG4J logger 2014-09-19 20:40:29,107  INFO [main] - org.hibernate.cfg.search.HibernateSearchEventListenerRegister.enableHibernateSearch 75 - Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+LOG4J logger 2014-09-19 20:40:29,170  INFO [main] - org.hibernate.cfg.HbmBinder.bindRootPersistentClassCommonValues 348 - Mapping class: il.ac.hit.couponstorem.model.Coupon -> COUPON
+LOG4J logger 2014-09-19 20:40:29,185  INFO [main] - org.hibernate.cfg.HbmBinder.bindRootPersistentClassCommonValues 348 - Mapping class: il.ac.hit.couponstorem.model.User -> USERS
+LOG4J logger 2014-09-19 20:40:29,185  INFO [main] - org.hibernate.cfg.AnnotationConfiguration.applyHibernateValidatorLegacyConstraintsOnDDL 450 - Hibernate Validator not found: ignoring
+LOG4J logger 2014-09-19 20:40:29,232  INFO [main] - org.hibernate.connection.DriverManagerConnectionProvider.configure 64 - Using Hibernate built-in connection pool (not for production use!)
+LOG4J logger 2014-09-19 20:40:29,232  INFO [main] - org.hibernate.connection.DriverManagerConnectionProvider.configure 65 - Hibernate connection pool size: 20
+LOG4J logger 2014-09-19 20:40:29,232  INFO [main] - org.hibernate.connection.DriverManagerConnectionProvider.configure 68 - autocommit mode: false
+LOG4J logger 2014-09-19 20:40:29,232  INFO [main] - org.hibernate.connection.DriverManagerConnectionProvider.configure 103 - using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/my_coupons_hibernate
+LOG4J logger 2014-09-19 20:40:29,232  INFO [main] - org.hibernate.connection.DriverManagerConnectionProvider.configure 109 - connection properties: {user=root, password=****}
+LOG4J logger 2014-09-19 20:40:29,420  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 117 - RDBMS: MySQL, version: 5.6.16
+LOG4J logger 2014-09-19 20:40:29,420  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 118 - JDBC driver: MySQL-AB JDBC Driver, version: mysql-connector-java-5.1.13 ( Revision: ${bzr.revision-id} )
+LOG4J logger 2014-09-19 20:40:29,436  INFO [main] - org.hibernate.dialect.Dialect.<init> 206 - Using dialect: org.hibernate.dialect.MySQLDialect
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.engine.jdbc.JdbcSupportLoader.useContextualLobCreation 79 - Disabling contextual LOB creation as JDBC driver reported JDBC version [3] less than 4
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.transaction.TransactionFactoryFactory.buildTransactionFactory 59 - Using default transaction strategy (direct JDBC transactions)
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.transaction.TransactionManagerLookupFactory.getTransactionManagerLookup 80 - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 169 - Automatic flush during beforeCompletion(): disabled
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 173 - Automatic session close at end of transaction: disabled
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 180 - JDBC batch size: 15
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 183 - JDBC batch updates for versioned data: disabled
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 188 - Scrollable result sets: enabled
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 196 - JDBC3 getGeneratedKeys(): enabled
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 204 - Connection release mode: auto
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 228 - Maximum outer join fetch depth: 2
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 231 - Default batch fetch size: 1
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 235 - Generate SQL with comments: disabled
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 239 - Order SQL updates by primary key: disabled
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 243 - Order SQL inserts for batching: disabled
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.createQueryTranslatorFactory 410 - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.hql.ast.ASTQueryTranslatorFactory.<init> 47 - Using ASTQueryTranslatorFactory
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 251 - Query language substitutions: {}
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 256 - JPA-QL strict compliance: disabled
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 261 - Second-level cache: enabled
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 265 - Query cache: disabled
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.createRegionFactory 395 - Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 275 - Optimize cache for minimal puts: disabled
+LOG4J logger 2014-09-19 20:40:29,452  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 284 - Structured second-level cache entries: disabled
+LOG4J logger 2014-09-19 20:40:29,468  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 313 - Statistics: disabled
+LOG4J logger 2014-09-19 20:40:29,468  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 317 - Deleted entity synthetic identifier rollback: disabled
+LOG4J logger 2014-09-19 20:40:29,468  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 332 - Default entity-mode: pojo
+LOG4J logger 2014-09-19 20:40:29,468  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 336 - Named query checking : enabled
+LOG4J logger 2014-09-19 20:40:29,468  INFO [main] - org.hibernate.cfg.SettingsFactory.buildSettings 340 - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+LOG4J logger 2014-09-19 20:40:29,483  INFO [main] - org.hibernate.impl.SessionFactoryImpl.<init> 199 - building session factory
+LOG4J logger 2014-09-19 20:40:29,624  INFO [main] - org.hibernate.impl.SessionFactoryObjectFactory.addInstance 105 - Not binding factory to JNDI, no JNDI name configured
+LOG4J logger 2014-09-19 20:40:29,655 ERROR [main] - org.hibernate.tool.hbm2ddl.SchemaUpdate.execute 212 - Unsuccessful: alter table USERS add column USERNAME  longtext not null
+LOG4J logger 2014-09-19 20:40:29,655 ERROR [main] - org.hibernate.tool.hbm2ddl.SchemaUpdate.execute 213 - Duplicate column name 'USERNAME'
+LOG4J logger 2014-09-19 20:40:29,655  INFO [main] - il.ac.hit.couponstorem.model.Log4j.<clinit> 44 - SESSION STARTED...
+LOG4J logger 2014-09-19 20:40:29,718 DEBUG [main] - org.hibernate.SQL.logStatement 111 - select coupon0_.ID as ID0_0_, coupon0_.BUSINESS_ID as BUSINESS2_0_0_, coupon0_.IMAGE as IMAGE0_0_, coupon0_.DETAILS as DETAILS0_0_, coupon0_.PRICE as PRICE0_0_, coupon0_.CATEGORY as CATEGORY0_0_, coupon0_.EXPIRE as EXPIRE0_0_ from COUPON coupon0_ where coupon0_.ID=?
+LOG4J logger 2014-09-19 20:40:29,733 TRACE [main] - org.hibernate.type.IntegerType.nullSafeSet 153 - binding '1' to parameter: 1
+LOG4J logger 2014-09-19 20:40:29,733 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'Pizza Hut' as column: BUSINESS2_0_0_
+LOG4J logger 2014-09-19 20:40:29,733 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'images/restaurants/pizza.jpg' as column: IMAGE0_0_
+LOG4J logger 2014-09-19 20:40:29,733 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'Hot and Fresh Family Pizza with 2 toppings of your choice  ' as column: DETAILS0_0_
+LOG4J logger 2014-09-19 20:40:29,733 TRACE [main] - org.hibernate.type.DoubleType.nullSafeGet 195 - returning '59.99' as column: PRICE0_0_
+LOG4J logger 2014-09-19 20:40:29,733 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'restaurants' as column: CATEGORY0_0_
+LOG4J logger 2014-09-19 20:40:29,733 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning '09.13.2014 23:00:00' as column: EXPIRE0_0_
+LOG4J logger 2014-09-19 20:40:29,733  INFO [main] - il.ac.hit.couponstorem.model.Log4j.getCoupon 152 - il.ac.hit.couponstorem.model.MyException: [1, Pizza Hut, image, Hot and Fresh Family Pizza with 2 toppings of your choice  ,restaurants,59.99]
+LOG4J logger 2014-09-19 20:40:29,858 DEBUG [main] - org.hibernate.SQL.logStatement 111 - select coupon0_.ID as ID0_, coupon0_.BUSINESS_ID as BUSINESS2_0_, coupon0_.IMAGE as IMAGE0_, coupon0_.DETAILS as DETAILS0_, coupon0_.PRICE as PRICE0_, coupon0_.CATEGORY as CATEGORY0_, coupon0_.EXPIRE as EXPIRE0_ from COUPON coupon0_ where CATEGORY='restaurants' limit ?, ?
+LOG4J logger 2014-09-19 20:40:29,858 TRACE [main] - org.hibernate.type.IntegerType.nullSafeGet 195 - returning '2' as column: ID0_
+LOG4J logger 2014-09-19 20:40:29,858 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'business2' as column: BUSINESS2_0_
+LOG4J logger 2014-09-19 20:40:29,858 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'image2' as column: IMAGE0_
+LOG4J logger 2014-09-19 20:40:29,858 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'coupon2' as column: DETAILS0_
+LOG4J logger 2014-09-19 20:40:29,858 TRACE [main] - org.hibernate.type.DoubleType.nullSafeGet 195 - returning '150.0' as column: PRICE0_
+LOG4J logger 2014-09-19 20:40:29,858 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning 'restaurants' as column: CATEGORY0_
+LOG4J logger 2014-09-19 20:40:29,858 TRACE [main] - org.hibernate.type.StringType.nullSafeGet 195 - returning '09.13.2014 23:00:00' as column: EXPIRE0_
+LOG4J logger 2014-09-19 20:40:29,874 DEBUG [main] - org.hibernate.SQL.logStatement 111 - select count(*) as col_0_0_ from COUPON coupon0_
+LOG4J logger 2014-09-19 20:40:29,874 TRACE [main] - org.hibernate.type.LongType.nullSafeGet 195 - returning '3' as column: col_0_0_

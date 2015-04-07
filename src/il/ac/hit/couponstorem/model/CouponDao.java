@@ -126,10 +126,7 @@ public class CouponDao implements ICouponDao
 	{
 		CouponDao.getSession().close();
 	}
-	
-	//**CHECK THE LOG IF NEEDED CHANGE IN CODE
-	
-	
+		
 	@Override
 	/**
 	 * @see ICouponDao
@@ -147,16 +144,12 @@ public class CouponDao implements ICouponDao
 		}
 		else
 		{
-			//maybe Log4j.getLog().info(c.toString)
 			MyException me1 = new MyException(c.toString());
 			Log4j.getLog().info(me1);
 		}
 		return c;
 	}
 		
-	//**CHECK THE LOG IF NEEDED CHANGE IN CODE
-	
-	
 	@Override
 	/**
 	 *
@@ -175,9 +168,6 @@ public class CouponDao implements ICouponDao
 		CouponDao.beginTransaction();
 		Query query = (Query) CouponDao.getSession().createQuery(hql);
 		int rowCount = ((org.hibernate.Query) query).executeUpdate();
-
-		//System.out.println("Query Executed!! -- UpdateCoupon"
-				//+ " rows affected = " + rowCount + "\n");
 		MyException me = new MyException("Query Executed!! -- UpdateCoupon"
 				+ " rows affected = " + rowCount);
 		Log4j.getLog().info(me);
@@ -188,7 +178,6 @@ public class CouponDao implements ICouponDao
 			CouponDao.getSession().getTransaction().commit();
 			
 			// for log purposes 
-			//System.out.println("update was succesful\n");
 			MyException me1 = new MyException("UPDATE WAS SUCCESFUL");
 			Log4j.getLog().info(me1);
 			queryflag = true;
@@ -209,13 +198,11 @@ public class CouponDao implements ICouponDao
 		{
 			CouponDao.getSession().getTransaction().commit();
 			// for log purposes 
-			//System.out.println("coupon added\n");
 			MyException me = new MyException("COUPON ADDED");
 			Log4j.getLog().info(me);
 			queryflag = true;
 		}
 		return queryflag;
-
 	}
 
 	@Override
@@ -233,7 +220,6 @@ public class CouponDao implements ICouponDao
 		{
 			CouponDao.getSession().getTransaction().commit();
 			// for log purposes 
-			//System.out.println("coupon was succesfuly deleted\n");
 			MyException me = new MyException("COUPON WAS SUCCESFULY DELETED");
 			Log4j.getLog().info(me);
 			queryflag = true;
@@ -256,7 +242,6 @@ public class CouponDao implements ICouponDao
 		{
 			CouponDao.getSession().getTransaction().commit();
 			// for log purposes 
-			//System.out.println("coupon was succesfuly deleted\n");
 			MyException me = new MyException("COUPON WAS SUCCESFULY DELETED");
 			Log4j.getLog().info(me);
 			queryflag = true;
@@ -275,7 +260,6 @@ public class CouponDao implements ICouponDao
 		if(from < 0 || from >numberOfCoupons)
 		{
 			// for log purposes 
-			//throw new MyException("The Values you entered are not correct please enter correct values!\n");
 			MyException me = new MyException("THE VALUES ENTERD FOR GETCOUPONS METHODE ARE INCORRECT");
 			Log4j.getLog().info(me);
 		}
@@ -297,7 +281,6 @@ public class CouponDao implements ICouponDao
 		if(from < 0 || from >numberOfCoupons)
 		{
 			// for log purposes 
-			//throw new MyException("The Values you entered are not correct please enter correct values!\n");
 			MyException me = new MyException("THE VALUES ENTERD FOR GETCOUPONS METHODE ARE INCORRECT");
 			Log4j.getLog().info(me);
 		}
@@ -319,7 +302,6 @@ public class CouponDao implements ICouponDao
 		if(from < 0 || from >numberOfCoupons)
 		{
 			// for log purposes 
-			//throw new MyException("The Values you entered are not correct please enter correct values!\n");
 			MyException me = new MyException("THE VALUES ENTERD FOR GETCOUPONS METHODE ARE INCORRECT");
 			Log4j.getLog().info(me);
 		}

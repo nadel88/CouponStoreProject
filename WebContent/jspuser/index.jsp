@@ -1,18 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=windows-1255"
     pageEncoding="windows-1255"%>
+<%@ page import="il.ac.hit.couponstorem.model.*" %>
+<%@ page import="java.util.Iterator" %>
 <jsp:useBean id="userName" class="il.ac.hit.couponstorem.model.User" scope="session"></jsp:useBean>
+<%if (userName.getUserName() == null)userName.setUserName("guest"); %>
+<%request.setAttribute("coupon",CouponDao.getInstance().getCoupons(0,CouponDao.getInstance().getListSize())); %>
+<%Iterator<Coupon> list_coupon = (Iterator<Coupon>)request.getAttribute("coupon"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-<%if (userName.getUserName() == null)userName.setUserName("guest"); %>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+	
     <title>Welcome To Coupon-Store</title>
-
+	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <!-- Bootstrap Core CSS -->
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
@@ -43,7 +48,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href=<%=request.getContextPath()+"/servlet/CouponUserServlet/index"%>>
-                    <img src="${pageContext.request.contextPath}/images/applogo1.png" alt=""> <!-- http://placehold.it/150x50&text=Logo -->
+                     <img class="hidden-xs" style="margin-top:-5px;margin-right:15px;" src="${pageContext.request.contextPath}/images/logo150.png" alt=""> 
+                      <img class="visible-xs" src="${pageContext.request.contextPath}/images/logo120.png" alt=""> 
                 </a>
             </div>
 
@@ -56,11 +62,8 @@
                     <li>
                         <a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/contact"%>>Contact</a>
                     </li>
-                    <li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li>
-                    <li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li>
                     <li>
-                        <a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/coupons_cart"%>>
-                        <img src="${pageContext.request.contextPath}/images/cart4.png" alt="" style=height:28px></a>
+                        <a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/coupons_cart"%>>Cart</a>
                     </li> 
                     <li>
                     	<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/login"%>>Log-In</a>
@@ -72,7 +75,7 @@
                     	<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/logoff"%>>Log-Off</a>
                     </li>         	
                     <li>
-               			 <a style ="font-size:18px">Hello:<%=userName.getUserName()%></a>
+               			 <a>Hello:<%=userName.getUserName()%></a>
                     </li>
                 </ul>
             </div>
@@ -80,10 +83,16 @@
         </div>
         <!-- /.container -->
     </nav>
-
-    <!-- Page Content -->
+	
+	    <!-- Page Content -->
     <div class="container">
-
+    
+		<div class="jumbotron" style="border:1px solid #DDD;">
+			<h1 class="hidden-xs" style="color: white;font-size:7em;margin-left:23%;">Coupon Store</h1>
+			<h1 class="visible-xs" style="color: white;font-size:4em;margin-left:5%;">Coupon Store</h1>
+			
+		</div>
+		
         <div class="row">
 
             <div class="col-md-3">
@@ -94,8 +103,18 @@
                     <a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/vacation"%> class="list-group-item">vacation</a>
                     <a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/electronics"%> class="list-group-item">electronics</a>
                 </div>
+                
+               
+                <div id="second-list" class="list-group">
+                	<p id="second-list-p" class="lead">Links</p>
+                    <a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/restaurants"%> class="list-group-item">Facebook</a>
+                    <a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/movies_shows"%> class="list-group-item">Twitter</a>
+                    <a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/vacation"%> class="list-group-item">LinkedIn</a>
+                    <a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/electronics"%> class="list-group-item">Resume Page</a>
+                    <a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/electronics"%> class="list-group-item">Artist Page</a>
+                </div>
             </div>
-
+           
             <div class="col-md-9">
 
                 <div class="row carousel-holder">
@@ -132,24 +151,94 @@
                     </div>
 
                 </div>
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy;2014 Coupon-Store all rights reserved</p>
+                
+                <hr>
+                <h1>New Items</h1>
+                <div class="row">
+               		<%for(int i = 1 ;i<=8 ; i++ ){ Coupon c = list_coupon.next(); %>
+               		<div class="col-xs-6 col-md-3">
+						<a href="#" class="thumbnail">
+							<img src="${pageContext.request.contextPath}/<%=c.getImage()%>" alt="...">
+						</a>
+					</div>
+					<%} %>
+					<!--<div class="col-xs-6 col-md-3">
+						<a href="#" class="thumbnail">
+							<img src="${pageContext.request.contextPath}/images/electronics/ipad.jpg" alt="...">
+						</a>
+					</div>
+					
+					<div class="col-xs-6 col-md-3">
+						<a href="#" class="thumbnail">
+							<img src="${pageContext.request.contextPath}/images/electronics/macbookpro.jpg" alt="...">
+						</a>
+					</div>
+					<div class="col-xs-6 col-md-3">
+						<a href="#" class="thumbnail">
+							<img src="${pageContext.request.contextPath}/images/vacation/amsterdam.jpg" alt="...">
+						</a>
+					</div>
+					<div class="col-xs-6 col-md-3">
+						<a href="#" class="thumbnail">
+							<img src="${pageContext.request.contextPath}/images/vacation/bigben.jpg" alt="...">
+						</a>
+					</div>
+					<div class="col-xs-6 col-md-3">
+						<a href="#" class="thumbnail">
+							<img src="${pageContext.request.contextPath}/images/restaurants/burger.png" alt="...">
+						</a>
+					</div>
+					<div class="col-xs-6 col-md-3">
+						<a href="#" class="thumbnail">
+							<img src="${pageContext.request.contextPath}/images/restaurants/breakfast.jpg" alt="...">
+						</a>
+					</div>
+					<div class="col-xs-6 col-md-3">
+						<a href="#" class="thumbnail">
+							<img src="${pageContext.request.contextPath}/images/movies_shows/concert.jpg" alt="...">
+						</a>
+					</div>
+					<div class="col-xs-6 col-md-3">
+						<a href="#" class="thumbnail">
+							<img src="${pageContext.request.contextPath}/images/movies_shows/opera.jpg" alt="...">
+						</a>
+					</div>-->
+				</div>
+				<hr>
+				<h1 style="margin-left:40%" class="underline">Full Disclosure!</h1>
+				
+				<div class="arrow-down"></div>
+
+                <!-- div for info -->
+                <div id="hidden-about">
+                	<p>This web application is my final project in Java EE course it is for demonstration purposes only(NOT REAL WORLD APPLICATION!).<br>
+                	The applicaiton was developed in eclipse ide planned in MVC architecture:<br> 
+                	&nbsp;-&nbsp;&nbsp;&nbsp;The model is the business logic (Java classes).<br>
+                	&nbsp;-&nbsp;&nbsp;&nbsp;The view is done with JSP (HTML,CSS,JQuery<br>&nbsp;&nbsp;&nbsp;&nbsp; and Bootstrap framework and customizations).<br>
+                	&nbsp;-&nbsp;&nbsp;&nbsp;The controller are servlets that takes care of the server functionality.  
+                	</p>
                 </div>
-            </div>
-        </footer>
+                
+		        <!-- Footer -->
+		        <footer>
+		            <div class="row">
+		                <div class="col-lg-12">
+		                	<hr>
+		                    <p>Copyright &copy;2014 Coupon-Store all rights reserved</p>
+		                </div>
+		            </div>
+		        </footer>
 
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery Version 1.11.0 -->
-    <script src="${pageContext.request.contextPath}/js/jquery-1.11.0.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-
-</body>
+    	</div>
+	    <!-- /.container -->
+	
+	    <!-- jQuery Version 1.11.0 -->
+	    <script src="${pageContext.request.contextPath}/js/jquery-1.11.0.js"></script>
+		
+	    <!-- Bootstrap Core JavaScript -->
+	    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+	    <script src="${pageContext.request.contextPath}/js/myjs.js"></script>
+	
+	</body>
 
 </html>

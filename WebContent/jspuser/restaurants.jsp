@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
     <title>Restaurants Coupons</title>
 
     <!-- Bootstrap Core CSS -->
@@ -35,7 +35,7 @@
 
 <body>
 
- <!-- Navigation -->
+   <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -46,8 +46,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                 <a class="navbar-brand" href=<%=request.getContextPath()+"/servlet/CouponUserServlet/index"%>>
-                     <img src="${pageContext.request.contextPath}/images/applogo1.png" alt=""> <!-- http://placehold.it/150x50&text=Logo -->
+                <a class="navbar-brand" href=<%=request.getContextPath()+"/servlet/CouponUserServlet/index"%>>
+                     <img class="hidden-xs" style="margin-top:-5px;margin-right:15px;" src="${pageContext.request.contextPath}/images/logo150.png" alt=""> 
+                      <img class="visible-xs" src="${pageContext.request.contextPath}/images/logo120.png" alt=""> 
                 </a>
             </div>
 
@@ -60,11 +61,8 @@
                     <li>
                         <a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/contact"%>>Contact</a>
                     </li>
-                    <li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li>
-                    <li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li><li><a></a></li>
                     <li>
-                        <a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/coupons_cart"%>>
-                        <img src="${pageContext.request.contextPath}/images/cart4.png" alt="" style=height:28px></a>
+                        <a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/coupons_cart"%>>Cart</a>
                     </li> 
                     <li>
                     	<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/login"%>>Log-In</a>
@@ -76,7 +74,7 @@
                     	<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/logoff"%>>Log-Off</a>
                     </li>         	
                     <li>
-               			 <a style ="font-size:18px">Hello:<%=userName.getUserName()%></a>
+               			 <a>Hello:<%=userName.getUserName()%></a>
                     </li>
                 </ul>
             </div>
@@ -142,6 +140,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+      <script src="${pageContext.request.contextPath}/js/myjs.js"></script>
 
 
 </body>

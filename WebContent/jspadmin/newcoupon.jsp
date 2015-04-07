@@ -67,7 +67,7 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6">
                         <h3>Add Coupon</h3>
                         <p>In this Form you cant add a coupon to the Data Base. </p>
                         <p>Make sure that you supply a correct business id (greater then 100).<br>and type the correct category (restaurants,electronics,movie_shows,vacation).</code>.</p>

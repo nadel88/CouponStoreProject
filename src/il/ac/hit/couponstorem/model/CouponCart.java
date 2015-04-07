@@ -2,6 +2,7 @@ package il.ac.hit.couponstorem.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * This class implements the coupon cart of each registered user .
@@ -54,6 +55,16 @@ public class CouponCart implements Serializable
 	 */
 	public void setCouponList(ArrayList<Coupon> couponList) {
 		this.couponList = couponList;
+	}
+	
+	public boolean checkIfIdExist(ArrayList<Coupon>couponList , int id)
+	{
+		for(Iterator<Coupon> iter = couponList.iterator() ; iter.hasNext();)
+		{
+			if(iter.next().getId() == id)
+				return true;
+		}
+		return false;
 	}
 
 	

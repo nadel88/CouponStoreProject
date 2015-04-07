@@ -61,15 +61,15 @@ public class CouponAdminServlet extends HttpServlet {
 		
 		if(tailStr.equals("adminindex"))
 		{
-			
 			gotoNavBarJSP(request, response, tailStr);
 		}
+		
 		else if(tailStr.equals("newcoupon"))
 		{
-			
 			session.setAttribute("notification", "no coupons added yet");
 			gotoNavBarJSP(request, response, tailStr);
 		}
+		
 		else if(tailStr.equals("deletecoupon"))
 		{
 			try {
@@ -81,6 +81,7 @@ public class CouponAdminServlet extends HttpServlet {
 			session.setAttribute("notification", "no coupons deleted yet");
 			gotoNavBarJSP(request, response, tailStr);
 		}
+		
 		else if(tailStr.equals("updatecoupon"))
 		{
 			try {
@@ -92,6 +93,7 @@ public class CouponAdminServlet extends HttpServlet {
 			session.setAttribute("notification", "no update commited yet");
 			gotoNavBarJSP(request, response, tailStr);
 		}
+		
 		else if(tailStr.equals("adminadduser"))
 		{
 			
@@ -101,7 +103,6 @@ public class CouponAdminServlet extends HttpServlet {
 		
 		else if(tailStr.equals("businessdelete"))
 		{
-			
 			try {
 				session.setAttribute("businesslist",CouponDao.getInstance().getBusinessDistinct(0, CouponDao.getInstance().getListSize()));
 			} catch (MyException e) {
@@ -147,14 +148,12 @@ public class CouponAdminServlet extends HttpServlet {
 		{
 			HttpSession s = request.getSession();
 			int id = CouponDao.getInstance().getListSize()+1;
-			//int business_id = Integer.parseInt(request.getParameter("business_id"));
 			String business_id = request.getParameter("business_id");
 			String image =(String)request.getParameter("image");
 			String details =(String)request.getParameter("details");
 			double price = Double.parseDouble(request.getParameter("price"));
 			String category =(String)request.getParameter("category");
 			String dateexp = (String)request.getParameter("doe");
-			
 			//check if the admin has entered correct category before creating a new coupon
 			if(CheckCategory(category))
 			{
@@ -171,7 +170,6 @@ public class CouponAdminServlet extends HttpServlet {
 					s.setAttribute("notification", "Coupon was not Added succesfuly");
 					RequestDispatcher dis = getServletContext().getRequestDispatcher("/jspadmin/newcoupon.jsp");
 					dis.forward(request,response);
-				
 				}
 			}
 			else
@@ -240,9 +238,6 @@ public class CouponAdminServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				Log4j.getLog().info("WRONG QUERY FOR GETUSERBYNAME");
 			}
-			
-			
-			
 		}
 		
 		

@@ -7,13 +7,27 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
-
+/**
+ * This class implements the Data Access Object for the class User.
+ * This class holds methods for connecting to the Data Base MySQL and retrieving data that corresponds to the class User.
+ * @author nadav
+ *
+ */
 public class UserDao implements IUserDao 
 {
 	
 	//private members
+	/**
+	 * The instance is a singleton variable to ensure only one instance of that class exist in a given runtime of the application.
+	 */
 	private static UserDao instance;
+	/**
+	 * the list_size is the number of rows returned from the DB
+	 */
 	private int list_size;
+	/**
+	 * The factory is a org.hibernate.SessionFactory object that creates the connection with the Data Base.
+	 */
 	private static final SessionFactory factory;
 	
 	//create session for connecting to DB
@@ -33,7 +47,10 @@ public class UserDao implements IUserDao
 	}
 	
 	//userDao connection management methods
-	
+	/**
+	 * This method returns the instance of this class
+	 * @return this CouponDao instance
+	 */
 	public static UserDao getInstance()
 	{
 		if(instance==null)
@@ -42,24 +59,38 @@ public class UserDao implements IUserDao
 		}
 		return instance;
 	}
-	
+	/**
+	 * This method is called before any queries to state that a transaction is about to be made.
+	 * This method returns the session object .
+	 *  while the session exist the connection to the Data Base is available from UserDao.
+	 * @return this CouponDao session.
+	 */
 	public static Session beginTransaction() 
 	{
 		Session session = UserDao.getSession();
 		session.beginTransaction();
 		return session;
 	}
-
+	/**
+	 * This method is called after a query is being processed .
+	 * The Commit() method start apply the query .
+	 */
 	public static void commit() 
 	{
 		UserDao.getSession().getTransaction().commit();
 	}
-
+	/**
+	 * This method is called when all queries has been committed and the current session is no longer needed.
+	 */
 	public static void close() 
 	{
 		UserDao.getSession().close();
 	}
-
+	/**
+	 * This method returns the session object .
+	 * while the session exist the connection to the Data Base is available from CouponDao.
+	 * @return this CouponDao session object.
+	 */
 	public static Session getSession() 
 	{
 		Session session = factory.getCurrentSession();
@@ -69,13 +100,15 @@ public class UserDao implements IUserDao
 	
 	
 	//getters and setters for private members and implementation of Hibernate query methods
-	
+	/**
+	 * This method returns the number of rows from the DB
+	 * @return the number of rows returned after a query has committed.
+	 */
 	public int getListSize()
 	{
 		list_size = ((Long)UserDao.getSession().createQuery("select count(*) from User as users").iterate().next()).intValue();
 		return list_size ;
 	}
-	
 	
 	@Override
 	/**
@@ -90,13 +123,11 @@ public class UserDao implements IUserDao
 		User u = (User) UserDao.getSession().get(User.class, uname);
 		if(u==null)
 		{
-			//throw new MyException("user id is incorrect plese enter correct value!\n");
 			MyException me = new MyException("USER ID IS INCORRECT");
 			Log4j.getLog().info(me);
 		}
 		else
 		{
-			//System.out.println(u);
 			MyException me1 = new MyException(u.toString());
 			Log4j.getLog().info(me1);
 		}
@@ -164,8 +195,6 @@ public class UserDao implements IUserDao
 		int rowCount = ((org.hibernate.Query) query).executeUpdate();
 		
 		// for log purposes 
-		//System.out.println("Query Executed!! -- Update User"
-			//+ " rows affected = " + rowCount + "\n");
 		MyException me = new MyException("Query Executed!! -- Update User"
 				+ " rows affected = " + rowCount );
 		Log4j.getLog().info(me);
@@ -176,7 +205,6 @@ public class UserDao implements IUserDao
 			UserDao.getSession().getTransaction().commit();
 			
 			// for log purposes 
-			//System.out.println("update was succesful\n");
 			MyException me1 = new MyException("UPDATE WAS SUCCESFUL");
 			Log4j.getLog().info(me1);
 			queryflag = true;
@@ -197,7 +225,6 @@ public class UserDao implements IUserDao
 			UserDao.getSession().getTransaction().commit();
 			
 			// for log purposes 
-			//System.out.println("user added\n");
 			MyException me = new MyException("USER ADDED");
 			Log4j.getLog().info(me);
 			queryflag = true;
@@ -222,7 +249,6 @@ public class UserDao implements IUserDao
 			UserDao.getSession().getTransaction().commit();
 			
 			// for log purposes 
-			//System.out.println("user was succesfuly deleted\n");
 			MyException me = new MyException("USER WAS SUCCESFULY DELETED");
 			Log4j.getLog().info(me);
 			queryflag = true;
@@ -239,7 +265,6 @@ public class UserDao implements IUserDao
 	{
 		if(from < 0 || from >numberOfUsers)
 		{
-			//throw new MyException("The Values you entered are not correct please enter correct values!\n");
 			MyException me = new MyException("THE VALUES ENTERED TO GETUSERS METHODE ARE INCORRECT");
 			Log4j.getLog().info(me);
 		}

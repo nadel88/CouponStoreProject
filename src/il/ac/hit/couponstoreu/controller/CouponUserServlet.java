@@ -8,21 +8,26 @@ import il.ac.hit.couponstorem.model.Log4j;
 import il.ac.hit.couponstorem.model.MyException;
 
 import java.io.IOException;
+import java.net.CookieManager;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
 
 import javax.lang.model.SourceVersion;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionContext;
 
 /**
  * Servlet implementation class CouponUserServlet.
@@ -52,7 +57,6 @@ public class CouponUserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String path = request.getRequestURI();
-		
 		//get the tail of the url to match with jsp page
 		String tailStr = path.substring(path.lastIndexOf('/')+1);
 		
@@ -120,8 +124,10 @@ public class CouponUserServlet extends HttpServlet {
 		
 		else if(tailStr.equals("coupons_cart"))
 		{ 
-
-			final HttpSession s = request.getSession(); //change was made final added
+			HttpSession s = request.getSession();
+			Cookie[]cookies = request.getCookies();
+			
+			//final HttpSession s = request.getSession(); //change was made final added
 			final CouponCart cc = (CouponCart) s.getAttribute("couponList"); //change was made final added
 			//check if the cart received through session is empty
 			if(cc==null)
@@ -136,15 +142,17 @@ public class CouponUserServlet extends HttpServlet {
 					Log4j.getLog().info("COUPON CART OBJECT IS VALID THROUGH SESSION");
 				
 					final int id = Integer.parseInt(request.getParameter("id")); //change was made final added
-					//check if the session is valid and is is not new session
-					if(s != null && !s.isNew())
+					//check if the session is valid and is not new session
+					if(s != null && !s.isNew()&&!cc.checkIfIdExist(cc.getCouponList(), id))
 					{
-					
 						try 
 						{
 							//access database through dao class and get a coupon according to the id selected
 							cc.getCouponList().add(CouponDao.getInstance().getCoupon(id));
 							Log4j.getLog().info("COUPON WITH ID:"+id+" ADDED TO THE COUPON CART.");
+							
+							
+							/***************************************************************************************************************
 							//initialize the iterator for the coupon list
 							java.util.Iterator<Coupon> iter = cc.getCouponList().iterator();
 						
@@ -162,19 +170,23 @@ public class CouponUserServlet extends HttpServlet {
 								iter = ctt.getCartIter();
 								//retrieve the list from the 
 								cc.setCouponList(ctt.getCouponcart().getCouponList());//NOT SURE IF NEEDED WILL CHECK LATER....
-							}
+							}*///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 						
 						}
 						catch (MyException e1 ) 
 						{
 							Log4j.getLog().info("ADDING COUPON FAILD.");
 							Log4j.getLog().debug(e1);
-							// TODO Auto-generated catch block
-							//e1.printStackTrace();
+							
+							
 						}
 						s.setAttribute("couponList",cc);
 						RequestDispatcher dis = getServletContext().getRequestDispatcher("/jspuser/"+tailStr+".jsp?id="+id);
 						dis.forward(request,response);
+					}
+					else
+					{
+						gotoNavBarJSP(request, response, tailStr);
 					}
 				}
 			
@@ -188,6 +200,13 @@ public class CouponUserServlet extends HttpServlet {
 					}
 					else
 					{
+						/*Long time1=System.currentTimeMillis()-s.getCreationTime();
+						Log4j.getLog().info("time difference is : "+time1);
+						if(time1>=30000)
+						{
+							cc.getCouponList().iterator().next().setAvailable(false);
+						}*/
+						
 						s.setAttribute("couponList",cc);
 						RequestDispatcher dis = getServletContext().getRequestDispatcher("/jspuser/"+tailStr+".jsp");
 						dis.forward(request,response);
@@ -277,7 +296,9 @@ public class CouponUserServlet extends HttpServlet {
 				s.setAttribute("couponList",cc);
 				RequestDispatcher dis = getServletContext().getRequestDispatcher("/jspuser/coupons_cart.jsp");
 				dis.forward(request,response);
+				
 			}
+			
 		}
 		else
 		{
