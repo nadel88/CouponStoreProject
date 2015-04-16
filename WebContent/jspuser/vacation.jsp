@@ -2,6 +2,11 @@
     pageEncoding="windows-1255"%>
 <%@ page import="il.ac.hit.couponstorem.model.*" %>
 <%@ page import="java.util.Iterator" %>
+<%  
+response.setHeader("Cache-Control","no-store"); //HTTP 1.1  
+response.setHeader("Pragma","no-cache"); //HTTP 1.0  
+response.setDateHeader ("Expires", 0); //prevents caching at the proxy server  
+%> 
 <jsp:useBean id="userName" class="il.ac.hit.couponstorem.model.User" scope="session"></jsp:useBean>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,9 +75,11 @@
                     <li>
                     	<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/signin"%>>Sign-Up</a>
                     </li> 
+                    <%if (userName.getUserName()!="guest"){ %>
                     <li>
-                    	<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/logoff"%>>Log-Off</a>
-                    </li>         	
+                    		<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/logoff"%>>Log-Off</a>
+                    </li>  
+                    <%} %>          	
                     <li>
                			 <a>Hello:<%=userName.getUserName()%></a>
                     </li>
@@ -126,7 +133,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                     <p>Copyright &copy;2014 CouponStoreNe all rights reserved</p>
                 </div>
             </div>
             <!-- /.row -->

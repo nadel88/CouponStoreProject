@@ -6,11 +6,13 @@
 		<property name="hibernate.connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
-		<property name="hibernate.connection.url">
+		  <property name="hibernate.connection.url">
 			jdbc:mysql://localhost:3306/my_coupons_hibernate
+		<!--  <property name="hibernate.connection.url">
+			jdbc:mysql://127.3.224.130:3306/couponstorene?autoReconnect=true -->
 		</property>
-		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password"></property>
+		<property name="hibernate.connection.username">root</property> <!-- root adminpAyjigp -->
+		<property name="hibernate.connection.password"></property>  <!-- empty jk15sI7TkZHJ-->
 		<property name="show_sql">false</property>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>

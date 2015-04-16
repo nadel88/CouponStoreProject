@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=windows-1255"
     pageEncoding="windows-1255"%>
+<%  
+response.setHeader("Cache-Control","no-store"); //HTTP 1.1  
+response.setHeader("Pragma","no-cache"); //HTTP 1.0  
+response.setDateHeader ("Expires", 0); //prevents caching at the proxy server  
+%> 
 <jsp:useBean id="userName" class="il.ac.hit.couponstorem.model.User" scope="session"></jsp:useBean>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
@@ -66,9 +71,11 @@
                     <li>
                     	<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/signin"%>>Sign-Up</a>
                     </li> 
+                   <%if (userName.getUserName()!="guest"){ %>
                     <li>
-                    	<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/logoff"%>>Log-Off</a>
-                    </li>         	
+                    		<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/logoff"%>>Log-Off</a>
+                    </li>  
+                    <%} %>           	
                     <li>
                			 <a>Hello:<%=userName.getUserName()%></a>
                     </li>
@@ -82,7 +89,11 @@
     <!-- Page Content -->
     <div class="container">
     
-    	<h3>About Coupon-Store.<br>made by Nadav Eliyahu.<br> for Java Server-Side Course HIT 2014.</h3>
+    	<h3>About Coupon-Store.<br>made by Nadav Eliyahu.<br> Final project HIT 2014.</h3>
+    	<p>The applicaiton was developed in eclipse ide planned in MVC architecture:<br> 
+                	&nbsp;-&nbsp;&nbsp;&nbsp;The model is the business logic (Java classes).<br>
+                	&nbsp;-&nbsp;&nbsp;&nbsp;The view is done with JSP (HTML,CSS,JQuery<br>&nbsp;&nbsp;&nbsp;&nbsp; and Bootstrap framework and customizations).<br>
+                	&nbsp;-&nbsp;&nbsp;&nbsp;The controller are servlets that takes care of the server functionality.</p>
     
     <div class="container">
 
@@ -92,7 +103,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy;2014 Coupon-Store all rights reserved</p>
+                     <p>Copyright &copy;2014 CouponStoreNe all rights reserved</p>
                 </div>
             </div>
         </footer>

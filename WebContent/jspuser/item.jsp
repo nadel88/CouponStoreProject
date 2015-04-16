@@ -1,27 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=windows-1255" 
     pageEncoding="windows-1255"%>
 <%@ page import="il.ac.hit.couponstorem.model.*" %>
-<%@ page import="il.ac.hit.couponstoreu.controller.*" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Iterator" %>
 <%  
 response.setHeader("Cache-Control","no-store"); //HTTP 1.1  
 response.setHeader("Pragma","no-cache"); //HTTP 1.0  
 response.setDateHeader ("Expires", 0); //prevents caching at the proxy server  
 %> 
 <jsp:useBean id="userName" class="il.ac.hit.couponstorem.model.User" scope="session"></jsp:useBean>
+<% Coupon c = new Coupon(); int id = Integer.valueOf( request.getParameter("id")); c=CouponDao.getInstance().getCoupon(id);%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<%if (userName.getUserName() == null)userName.setUserName("guest"); %>
-<jsp:useBean id="couponList" class="il.ac.hit.couponstorem.model.CouponCart" scope="session"></jsp:useBean>
 
+<head>
+	<%if (userName.getUserName() == null)userName.setUserName("guest"); %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Coupons-Cart</title>
 	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <title><%=c.getDetails()%></title>
+
     <!-- Bootstrap Core CSS -->
     <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
@@ -39,7 +39,6 @@ response.setDateHeader ("Expires", 0); //prevents caching at the proxy server
 </head>
 
 <body>
-
    <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -79,7 +78,7 @@ response.setDateHeader ("Expires", 0); //prevents caching at the proxy server
                     <li>
                     		<a href=<%=request.getContextPath()+"/servlet/CouponUserServlet/logoff"%>>Log-Off</a>
                     </li>  
-                    <%} %>           	
+                    <%} %>          	
                     <li>
                			 <a>Hello:<%=userName.getUserName()%></a>
                     </li>
@@ -89,35 +88,25 @@ response.setDateHeader ("Expires", 0); //prevents caching at the proxy server
         </div>
         <!-- /.container -->
     </nav>
-    
+
+
     <!-- Page Content -->
     <div class="container">
 
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Coupons-Cart
-                    <small>Your Chosen Coupons are here:</small>
+                <h1 class="page-header"><%=c.getBusiness_id() %>
+                    <small><%=c.getDetails()%></small>
                 </h1>
             </div>
         </div>
-         <%if(userName.getUserName().equals("guest")){ %>
-        	<h3>Register or log-in to access the coupon cart</h3>
-        	<img class="img-responsive hidden-xs img-resize" style="margin-left:30%;" src="${pageContext.request.contextPath}/images/oops.jpg" alt="" >
-        	<img class="img-responsive visible-xs" src="${pageContext.request.contextPath}/images/oops.jpg" alt="" >
-        	<%} %>
-        <%if (couponList.getCouponList()!=null && (!userName.getUserName().equals("guest"))) { if(couponList.getCouponList().isEmpty()){ %>
-            <h3>No coupons yet </h3> 
-             <img class="img-responsive hidden-xs img-resize" style="margin-left:30%;" src="${pageContext.request.contextPath}/images/empty_cart.jpeg" alt="" >
-        	 <img class="img-responsive visible-xs" src="${pageContext.request.contextPath}/images/empty_cart.jpeg" alt="" > 
-        <hr>
-    <%}else{ %>
-    <%for(int i = 0 ; i<couponList.getCouponList() .size() ; i++ ){ Coupon c = couponList.getCouponList().get(i);if(c.isAvailable()) {%>
+        <!-- /.row -->
         <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
                 <a href="#">
-                     <img class="img-responsive" src="${pageContext.request.contextPath}/<%=c.getImage()%>" alt=""> <!-- http://placehold.it/700x300 -->
+                    <img class="img-responsive" src="${pageContext.request.contextPath}/<%=c.getImage()%>" alt=""> <!-- http://placehold.it/700x300 -->
                 </a>
             </div>
             
@@ -126,26 +115,22 @@ response.setDateHeader ("Expires", 0); //prevents caching at the proxy server
                 <h4>Business ID: <%=c.getBusiness_id() %></h4>
                 <p>Coupon Details: <%=c.getDetails()%></p>
                 <p>Coupon Price: <%=c.getPrice() %> NIS</p>
-                 <p>Valid until: <%=c.getExpiredate() %></p>
-                <%session.setAttribute("idremove", i); %>
-               <img src="${pageContext.request.contextPath}/images/Trash-128.png" alt="" style=height:28px>
-               <a class="btn btn-primary" href=<%=request.getContextPath()+"/servlet/CouponUserServlet/cart_remove?idremove="+i%>>Delete Item From Cart <span class="glyphicon glyphicon-chevron-right"></span></a>
+                <p>Valid until: <%=c.getExpiredate() %></p>
+                 <%session.setAttribute("id", c.getId()); %>
+                <a class="btn btn-primary" href=servlet/CouponUserServlet/coupons_cart?id=<%=c.getId() %>>Add Coupon To Cart <span class="glyphicon glyphicon-chevron-right"></span></a>
+               
             </div>
         </div>
         <!-- /.row -->
 
         <hr>
-	<%}}}}%>
-	<%if(userName.getUserName()!="guest" && couponList.getCouponList().size()>0){%>
-		 <a class="btn btn-primary" href=<%=request.getContextPath()+"/servlet/CouponUserServlet/checkout"%>>continue to check out <span class="glyphicon glyphicon-chevron-right"></span></a>
-		  <a class="btn btn-primary" href=<%=request.getContextPath()+"/servlet/CouponUserServlet/cart_remove_all"%>>clear cart <span class="glyphicon glyphicon-chevron-right"></span></a>
-		   <a class="btn btn-primary" href=<%=request.getContextPath()+"/servlet/CouponUserServlet/index"%>>continue shopping <span class="glyphicon glyphicon-chevron-right"></span></a>
-	<%}%>
+        <hr>
+
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy;2014 CouponStoreNe all rights reserved</p>
+                   <p>Copyright &copy;2014 CouponStoreNe all rights reserved</p>
                 </div>
             </div>
             <!-- /.row -->

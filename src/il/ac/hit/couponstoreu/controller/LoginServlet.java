@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 			String passcheck = (String)request.getParameter("passWordCheck");
 			
 			//check if password field is identical to password confirmation field
-			if(password.equals(passcheck))
+			if(password.equals(passcheck)&&!password.isEmpty()&&!passcheck.isEmpty())
 			{
 				//check with DB to see if the new user already exist in the data base
 				if(Authenticate(response,request))
@@ -76,6 +76,16 @@ public class LoginServlet extends HttpServlet {
 					gotoWebApplication(request, response);
 				}
 				
+			}
+			else if(!password.equals(passcheck)){
+				s.setAttribute("usernotif", "passwords does not match");
+				gotoLogin(request, response,"signin");
+			}
+			//validation for registration
+			else if(password.isEmpty()|| request.getParameter("userName").isEmpty()|| passcheck.isEmpty())
+			{
+				s.setAttribute("usernotif", "please fill in the missing fields");
+				gotoLogin(request, response,"signin");
 			}
 		}
 		//check if the user exist in DB and check if the user is regular user

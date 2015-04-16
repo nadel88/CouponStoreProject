@@ -4,7 +4,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="il.ac.hit.couponstorem.model.Coupon" table="COUPON">
+	<class name="il.ac.hit.couponstorem.model.Coupon" table="coupon"> <!-- COUPON -->
 		<id name="id" type="int" column="ID" >
 			<generator class="increment"/>
 		</id>
@@ -28,7 +28,7 @@
 		</property>
 	</class>
 	
-	<class name="il.ac.hit.couponstorem.model.User" table="USERS">
+	<class name="il.ac.hit.couponstorem.model.User" table="users">
 		<id name="userName" type="text" column="USERNAME ">
 		</id>
 		<property name="passWord">

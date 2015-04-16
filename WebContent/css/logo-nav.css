@@ -57,3 +57,6 @@ body {
 
 .underline{text-decoration:underline;}
 .jumbotron{background-image:url(../images/purpleblure.jpg);}
+.img-resize{width:50%;height:auto;}
+.btn{background-color: #9966cc;}
+.btn:hover{background-color:#9966cc;}

@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=windows-1255"
     pageEncoding="windows-1255"%>
 <%session.setAttribute("isNew", false); %>
+<%  
+response.setHeader("Cache-Control","no-store"); //HTTP 1.1  
+response.setHeader("Pragma","no-cache"); //HTTP 1.0  
+response.setDateHeader ("Expires", 0); //prevents caching at the proxy server  
+%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,9 +41,14 @@
      <div class="form-group">
         <button formaction="<%= request.getContextPath() +"/servlet/CouponUserServlet/finalpage"%>" class="btn btn-primary btn-lg btn-block">purchase</button>
     </div>
+    <hr>
 </form>
 <!-- Simple Login - END -->
-
+ 
+ <img class="img-responsive hidden-xs" src="${pageContext.request.contextPath}/images/creditcards.jpg" alt="" style="margin-left:30%;">
+ <img class="img-responsive visible-xs" src="${pageContext.request.contextPath}/images/creditcards.jpg" alt="" >
+ <hr>
+ <p>**this site is working in a secure manner to ensure the highest security possible for our customers.**</p>
 </div>
 </body>
 </html>

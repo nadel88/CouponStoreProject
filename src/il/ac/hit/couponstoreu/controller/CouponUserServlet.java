@@ -75,7 +75,7 @@ public class CouponUserServlet extends HttpServlet {
 		{
 			HttpSession session = request.getSession();
 			//Initialize user notification 
-			session.setAttribute("usernotif", "waiting for input");
+			session.setAttribute("usernotif", "");
 			gotoNavBarJSP(request, response, tailStr);
 		}
 		
@@ -83,14 +83,18 @@ public class CouponUserServlet extends HttpServlet {
 		{
 			HttpSession session = request.getSession();
 			//Initialize user notification 
-			session.setAttribute("usernotif", "waiting for input");
+			session.setAttribute("usernotif", "");
 			gotoNavBarJSP(request, response, tailStr);
 		}
 		
 		else if(tailStr.equals("logoff"))
 		{
+			
 			HttpSession session = request.getSession();
+			session.removeAttribute("userName");
+			session.setAttribute("userName", "guest");
 			session.invalidate();
+			
 			Log4j.getLog().info("USER LOGGED OFF.");
 			RequestDispatcher dis = getServletContext().getRequestDispatcher("/jspuser/index.jsp");
 			dis.forward(request,response);
@@ -107,6 +111,12 @@ public class CouponUserServlet extends HttpServlet {
 		
 		else if(tailStr.equals("electronics"))
 			gotoSideBarJSP(request, response, tailStr);
+		
+		else if(tailStr.equals("item")){
+			final int id_item = Integer.parseInt(request.getParameter("id"));
+			RequestDispatcher dis = getServletContext().getRequestDispatcher("/jspuser/"+tailStr+".jsp?id="+id_item);
+			dis.forward(request,response);
+		}
 		
 		//final page is only for demonstration purposes and the parameters it receives does not count as a real world scenario
 		else if(tailStr.equals("finalpage"))
